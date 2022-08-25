@@ -1,0 +1,12 @@
+#!/bin/sh
+
+mkdir -p bin
+
+docker build -t examples -f scripts/examples/Dockerfile .
+docker run \
+  --rm \
+  -it \
+  -v $(pwd):/workspace \
+  -u $(id -u $USER):$(id -g $USER) \
+  examples \
+  cp rgb_to_bgr /workspace/bin/rgb_to_bgr

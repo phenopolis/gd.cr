@@ -1,0 +1,14 @@
+---
+name: LibGD
+ldflags: "-lgd -ljpeg"
+definitions:
+  repository:
+    includes:
+      - /path/to/ext/gd/gd.h
+    prefixes:
+      - gd
+rename:
+  rules:
+    FunDef:
+      - pattern: gd_
+        replacement: ""

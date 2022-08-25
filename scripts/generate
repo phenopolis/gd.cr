@@ -1,0 +1,30 @@
+#!/usr/bin/env crystal
+
+system("libgen lib.yml")
+
+repository_path = "src/lib_gd/repository.cr"
+repository = File.read(repository_path)
+
+{
+  "GdInterpolationMethod"     => "InterpolationMethodID",
+  "Gd"                        => "",
+  "GD"                        => "",
+  "lib Lib"                   => "lib LibGD",
+  "struct Gd"                 => "struct ",
+  /gdImage2Ptr(.*) : Void/    => "gdImage2Ptr(im : ImagePtr, cs : LibC::Int, fmt : LibC::Int, size : LibC::Int*) : LibC::Char",
+  /gdImageAvifPtr(.*) : Void/ => "gdImageAvifPtr(im : ImagePtr, size : LibC::Int*) : LibC::Char",
+  /gdImageAvifPtr(.*) : Void/ => "gdImageAvifPtr(im : ImagePtr, size : LibC::Int*) : LibC::Char",
+  /gdImageBmpPtr(.*) : Void/  => "gdImageBmpPtr(im : ImagePtr, size : LibC::Int*, compression : LibC::Int) : LibC::Char",
+  /gdImageGifPtr(.*) : Void/  => "gdImageGifPtr(im : ImagePtr, size : LibC::Int*) : LibC::Char",
+  /gdImageHeifPtr(.*) : Void/ => "gdImageHeifPtr(im : ImagePtr, size : LibC::Int*) : LibC::Char",
+  /gdImageJpegPtr(.*) : Void/ => "gdImageJpegPtr(im : ImagePtr, size : LibC::Int*, quality : LibC::Int) : LibC::Char",
+  /gdImagePngPtr(.*) : Void/  => "gdImagePngPtr(im : ImagePtr, size : LibC::Int*) : LibC::Char",
+  /gdImagePtr(.*) : Void/     => "gdImagePtr(im : ImagePtr, size : LibC::Int*) : LibC::Char",
+  /gdImageTiffPtr(.*) : Void/ => "gdImageTiffPtr(im : ImagePtr, size : LibC::Int*) : LibC::Char",
+  /gdImageWBMPPtr(.*) : Void/ => "gdImageWBMPPtr(im : ImagePtr, size : LibC::Int*, fg : LibC::Int) : LibC::Char",
+  /gdImageWebpPtr(.*) : Void/ => "gdImageWebpPtr(im : ImagePtr, size : LibC::Int*) : LibC::Char",
+}.each do |before, after|
+  repository = repository.gsub(before, after)
+end
+
+File.write(repository_path, repository)
