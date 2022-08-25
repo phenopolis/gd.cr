@@ -182,8 +182,8 @@ lib LibGD
   fun image_create_from_gd2_part_ctx = gdImageCreateFromGd2PartCtx(in : IoCtxPtr, srcx : LibC::Int, srcy : LibC::Int, w : LibC::Int, h : LibC::Int) : ImagePtr
   fun image_create_from_gd2_part_ptr = gdImageCreateFromGd2PartPtr(size : LibC::Int, data : Void*, srcx : LibC::Int, srcy : LibC::Int, w : LibC::Int, h : LibC::Int) : ImagePtr
   fun image_create_from_gd2_ptr = gdImageCreateFromGd2Ptr(size : LibC::Int, data : Void*) : ImagePtr
-  fun image_create_from_ctx = gdImageCreateFromCtx(in : IoCtxPtr) : ImagePtr
-  fun image_create_from_ptr = gdImageCreateFromPtr(size : LibC::Int, data : Void*) : ImagePtr
+  fun image_create_from_ctx = gdImageCreateFromGdCtx(in : IoCtxPtr) : ImagePtr
+  fun image_create_from_ptr = gdImageCreateFromGdPtr(size : LibC::Int, data : Void*) : ImagePtr
   fun image_create_from_gif = gdImageCreateFromGif(fd : File*) : ImagePtr
   fun image_create_from_gif_ctx = gdImageCreateFromGifCtx(in : IoCtxPtr) : ImagePtr
   fun image_create_from_gif_ptr = gdImageCreateFromGifPtr(size : LibC::Int, data : Void*) : ImagePtr
