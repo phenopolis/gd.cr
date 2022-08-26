@@ -5,7 +5,7 @@ RUN apk add \
   cmake \
   crystal \
   git \
-  nasm
+  yasm
 
 WORKDIR /libjpeg-turbo
 RUN git clone --branch 2.0.x --depth 1 https://github.com/libjpeg-turbo/libjpeg-turbo .
