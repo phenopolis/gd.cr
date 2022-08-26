@@ -23,6 +23,7 @@ RUN cmake \
   -B build \
   -DBUILD_SHARED_LIBS=OFF \
   -DBUILD_STATIC_LIBS=ON \
+  -DCMAKE_BUILD_TYPE=Release \
   -DENABLE_JPEG=1 \
   -DJPEG_INCLUDE_DIR="/usr/lib" \
   .
