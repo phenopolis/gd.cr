@@ -21,6 +21,7 @@ repository = File.read(repository_path)
   "gdImageCreateFrom2Ptr("     => "gdImageCreateFromGd2Ptr(",
   "gdImageCreateFromCtx"       => "gdImageCreateFromGdCtx",
   "gdImageCreateFromPtr"       => "gdImageCreateFromGdPtr",
+  "Io"                         => "IO",
   "lib Lib"                    => "lib LibGD",
   "struct Gd"                  => "struct ",
   "Struct"                     => "",

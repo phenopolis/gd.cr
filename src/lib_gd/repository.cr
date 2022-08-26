@@ -40,7 +40,7 @@ lib LibGD
   alias FtStringExtraPtr = FtStringExtra*
   alias HeifChroma = LibC::Char*
   alias ImagePtr = Image*
-  alias IoCtxPtr = IoCtx*
+  alias IOCtxPtr = IOCtx*
   alias PointFPtr = PointF*
   alias PointPtr = Point*
   alias RectPtr = Rect*
@@ -49,10 +49,10 @@ lib LibGD
   alias SourcePtr = Source*
   alias InterpolationMethod = (LibC::Double, LibC::Double -> LibC::Double)
   alias VaList = X__GnucVaList
-  alias X_IoCodecvt = Void
-  alias X_IoLockT = Void
-  alias X_IoMarker = Void
-  alias X_IoWideData = Void
+  alias X_IOCodecvt = Void
+  alias X_IOLockT = Void
+  alias X_IOMarker = Void
+  alias X_IOWideData = Void
   alias X__GnucVaList = LibC::VaList
   alias X__Off64T = LibC::Long
   alias X__OffT = LibC::Long
@@ -110,30 +110,30 @@ lib LibGD
   fun affine_translate = gdAffineTranslate(dst : LibC::Double[6], offset_x : LibC::Double, offset_y : LibC::Double) : LibC::Int
   fun alpha_blend = gdAlphaBlend(dest : LibC::Int, src : LibC::Int) : LibC::Int
   fun clear_error_method = gdClearErrorMethod
-  fun dp_extract_data = gdDPExtractData(ctx : IoCtxPtr, size : LibC::Int*) : Void*
+  fun dp_extract_data = gdDPExtractData(ctx : IOCtxPtr, size : LibC::Int*) : Void*
   fun extra_version = gdExtraVersion : LibC::Char*
   fun font_cache_setup = gdFontCacheSetup : LibC::Int
   fun font_cache_shutdown = gdFontCacheShutdown
   fun free = gdFree(m : Void*)
   fun free_font_cache = gdFreeFontCache
   fun ft_use_font_config = gdFTUseFontConfig(flag : LibC::Int) : LibC::Int
-  fun get_buf = gdGetBuf(x0 : Void*, x1 : LibC::Int, x2 : IoCtxPtr) : LibC::Int
-  fun get_byte = gdGetByte(result : LibC::Int*, ctx : IoCtxPtr) : LibC::Int
-  fun get_c = gdGetC(ctx : IoCtxPtr) : LibC::Int
-  fun get_int = gdGetInt(result : LibC::Int*, ctx : IoCtxPtr) : LibC::Int
-  fun get_int_lsb = gdGetIntLSB(result : LibC::Int*, ctx : IoCtxPtr) : LibC::Int
-  fun get_word = gdGetWord(result : LibC::Int*, ctx : IoCtxPtr) : LibC::Int
-  fun get_word_lsb = gdGetWordLSB(result : LibC::Short*, ctx : IoCtxPtr) : LibC::Int
+  fun get_buf = gdGetBuf(x0 : Void*, x1 : LibC::Int, x2 : IOCtxPtr) : LibC::Int
+  fun get_byte = gdGetByte(result : LibC::Int*, ctx : IOCtxPtr) : LibC::Int
+  fun get_c = gdGetC(ctx : IOCtxPtr) : LibC::Int
+  fun get_int = gdGetInt(result : LibC::Int*, ctx : IOCtxPtr) : LibC::Int
+  fun get_int_lsb = gdGetIntLSB(result : LibC::Int*, ctx : IOCtxPtr) : LibC::Int
+  fun get_word = gdGetWord(result : LibC::Int*, ctx : IOCtxPtr) : LibC::Int
+  fun get_word_lsb = gdGetWordLSB(result : LibC::Short*, ctx : IOCtxPtr) : LibC::Int
   fun image_aa_blend = gdImageAABlend(im : ImagePtr)
   fun image_alpha_blending = gdImageAlphaBlending(im : ImagePtr, alpha_blending_arg : LibC::Int)
   fun image_arc = gdImageArc(im : ImagePtr, cx : LibC::Int, cy : LibC::Int, w : LibC::Int, h : LibC::Int, s : LibC::Int, e : LibC::Int, color : LibC::Int)
   fun image_avif = gdImageAvif(im : ImagePtr, out_file : File*)
-  fun image_avif_ctx = gdImageAvifCtx(im : ImagePtr, outfile : IoCtxPtr, quality : LibC::Int, speed : LibC::Int)
+  fun image_avif_ctx = gdImageAvifCtx(im : ImagePtr, outfile : IOCtxPtr, quality : LibC::Int, speed : LibC::Int)
   fun image_avif_ex = gdImageAvifEx(im : ImagePtr, out_file : File*, quality : LibC::Int, speed : LibC::Int)
   fun image_avif_ptr = gdImageAvifPtr(im : ImagePtr, size : LibC::Int*) : LibC::Char*
   fun image_avif_ptr_ex = gdImageAvifPtr(im : ImagePtr, size : LibC::Int*) : LibC::Char*
   fun image_bmp = gdImageBmp(im : ImagePtr, out_file : File*, compression : LibC::Int)
-  fun image_bmp_ctx = gdImageBmpCtx(im : ImagePtr, out : IoCtxPtr, compression : LibC::Int)
+  fun image_bmp_ctx = gdImageBmpCtx(im : ImagePtr, out : IOCtxPtr, compression : LibC::Int)
   fun image_bmp_ptr = gdImageBmpPtr(im : ImagePtr, size : LibC::Int*, compression : LibC::Int) : LibC::Char*
   fun image_bounds_safe = gdImageBoundsSafe(im : ImagePtr, x : LibC::Int, y : LibC::Int) : LibC::Int
   fun image_brightness = gdImageBrightness(src : ImagePtr, brightness : LibC::Int) : LibC::Int
@@ -169,48 +169,48 @@ lib LibGD
   fun image_copy_rotated = gdImageCopyRotated(dst : ImagePtr, src : ImagePtr, dst_x : LibC::Double, dst_y : LibC::Double, src_x : LibC::Int, src_y : LibC::Int, src_width : LibC::Int, src_height : LibC::Int, angle : LibC::Int)
   fun image_create = gdImageCreate(sx : LibC::Int, sy : LibC::Int) : ImagePtr
   fun image_create_from_avif = gdImageCreateFromAvif(in_file : File*) : ImagePtr
-  fun image_create_from_avif_ctx = gdImageCreateFromAvifCtx(infile : IoCtxPtr) : ImagePtr
+  fun image_create_from_avif_ctx = gdImageCreateFromAvifCtx(infile : IOCtxPtr) : ImagePtr
   fun image_create_from_avif_ptr = gdImageCreateFromAvifPtr(size : LibC::Int, data : Void*) : ImagePtr
   fun image_create_from_bmp = gdImageCreateFromBmp(in_file : File*) : ImagePtr
-  fun image_create_from_bmp_ctx = gdImageCreateFromBmpCtx(infile : IoCtxPtr) : ImagePtr
+  fun image_create_from_bmp_ctx = gdImageCreateFromBmpCtx(infile : IOCtxPtr) : ImagePtr
   fun image_create_from_bmp_ptr = gdImageCreateFromBmpPtr(size : LibC::Int, data : Void*) : ImagePtr
   fun image_create_from_file = gdImageCreateFromFile(filename : LibC::Char*) : ImagePtr
   fun image_create_from_gd = gdImageCreateFromGd(in : File*) : ImagePtr
   fun image_create_from_gd2 = gdImageCreateFromGd2(in : File*) : ImagePtr
-  fun image_create_from_gd2_ctx = gdImageCreateFromGd2Ctx(in : IoCtxPtr) : ImagePtr
+  fun image_create_from_gd2_ctx = gdImageCreateFromGd2Ctx(in : IOCtxPtr) : ImagePtr
   fun image_create_from_gd2_part = gdImageCreateFromGd2Part(in : File*, srcx : LibC::Int, srcy : LibC::Int, w : LibC::Int, h : LibC::Int) : ImagePtr
-  fun image_create_from_gd2_part_ctx = gdImageCreateFromGd2PartCtx(in : IoCtxPtr, srcx : LibC::Int, srcy : LibC::Int, w : LibC::Int, h : LibC::Int) : ImagePtr
+  fun image_create_from_gd2_part_ctx = gdImageCreateFromGd2PartCtx(in : IOCtxPtr, srcx : LibC::Int, srcy : LibC::Int, w : LibC::Int, h : LibC::Int) : ImagePtr
   fun image_create_from_gd2_part_ptr = gdImageCreateFromGd2PartPtr(size : LibC::Int, data : Void*, srcx : LibC::Int, srcy : LibC::Int, w : LibC::Int, h : LibC::Int) : ImagePtr
   fun image_create_from_gd2_ptr = gdImageCreateFromGd2Ptr(size : LibC::Int, data : Void*) : ImagePtr
-  fun image_create_from_ctx = gdImageCreateFromGdCtx(in : IoCtxPtr) : ImagePtr
+  fun image_create_from_ctx = gdImageCreateFromGdCtx(in : IOCtxPtr) : ImagePtr
   fun image_create_from_ptr = gdImageCreateFromGdPtr(size : LibC::Int, data : Void*) : ImagePtr
   fun image_create_from_gif = gdImageCreateFromGif(fd : File*) : ImagePtr
-  fun image_create_from_gif_ctx = gdImageCreateFromGifCtx(in : IoCtxPtr) : ImagePtr
+  fun image_create_from_gif_ctx = gdImageCreateFromGifCtx(in : IOCtxPtr) : ImagePtr
   fun image_create_from_gif_ptr = gdImageCreateFromGifPtr(size : LibC::Int, data : Void*) : ImagePtr
   fun image_create_from_heif = gdImageCreateFromHeif(in_file : File*) : ImagePtr
-  fun image_create_from_heif_ctx = gdImageCreateFromHeifCtx(infile : IoCtxPtr) : ImagePtr
+  fun image_create_from_heif_ctx = gdImageCreateFromHeifCtx(infile : IOCtxPtr) : ImagePtr
   fun image_create_from_heif_ptr = gdImageCreateFromHeifPtr(size : LibC::Int, data : Void*) : ImagePtr
   fun image_create_from_jpeg = gdImageCreateFromJpeg(infile : File*) : ImagePtr
-  fun image_create_from_jpeg_ctx = gdImageCreateFromJpegCtx(infile : IoCtxPtr) : ImagePtr
-  fun image_create_from_jpeg_ctx_ex = gdImageCreateFromJpegCtxEx(infile : IoCtxPtr, ignore_warning : LibC::Int) : ImagePtr
+  fun image_create_from_jpeg_ctx = gdImageCreateFromJpegCtx(infile : IOCtxPtr) : ImagePtr
+  fun image_create_from_jpeg_ctx_ex = gdImageCreateFromJpegCtxEx(infile : IOCtxPtr, ignore_warning : LibC::Int) : ImagePtr
   fun image_create_from_jpeg_ex = gdImageCreateFromJpegEx(infile : File*, ignore_warning : LibC::Int) : ImagePtr
   fun image_create_from_jpeg_ptr = gdImageCreateFromJpegPtr(size : LibC::Int, data : Void*) : ImagePtr
   fun image_create_from_jpeg_ptr_ex = gdImageCreateFromJpegPtrEx(size : LibC::Int, data : Void*, ignore_warning : LibC::Int) : ImagePtr
   fun image_create_from_png = gdImageCreateFromPng(fd : File*) : ImagePtr
-  fun image_create_from_png_ctx = gdImageCreateFromPngCtx(in : IoCtxPtr) : ImagePtr
+  fun image_create_from_png_ctx = gdImageCreateFromPngCtx(in : IOCtxPtr) : ImagePtr
   fun image_create_from_png_ptr = gdImageCreateFromPngPtr(size : LibC::Int, data : Void*) : ImagePtr
   fun image_create_from_png_source = gdImageCreateFromPngSource(in : SourcePtr) : ImagePtr
   fun image_create_from_tga = gdImageCreateFromTga(fp : File*) : ImagePtr
-  fun image_create_from_tga_ctx = gdImageCreateFromTgaCtx(ctx : IoCtxPtr) : ImagePtr
+  fun image_create_from_tga_ctx = gdImageCreateFromTgaCtx(ctx : IOCtxPtr) : ImagePtr
   fun image_create_from_tga_ptr = gdImageCreateFromTgaPtr(size : LibC::Int, data : Void*) : ImagePtr
   fun image_create_from_tiff = gdImageCreateFromTiff(in_file : File*) : ImagePtr
-  fun image_create_from_tiff_ctx = gdImageCreateFromTiffCtx(infile : IoCtxPtr) : ImagePtr
+  fun image_create_from_tiff_ctx = gdImageCreateFromTiffCtx(infile : IOCtxPtr) : ImagePtr
   fun image_create_from_tiff_ptr = gdImageCreateFromTiffPtr(size : LibC::Int, data : Void*) : ImagePtr
   fun image_create_from_wbmp = gdImageCreateFromWBMP(in_file : File*) : ImagePtr
-  fun image_create_from_wbmp_ctx = gdImageCreateFromWBMPCtx(infile : IoCtxPtr) : ImagePtr
+  fun image_create_from_wbmp_ctx = gdImageCreateFromWBMPCtx(infile : IOCtxPtr) : ImagePtr
   fun image_create_from_wbmp_ptr = gdImageCreateFromWBMPPtr(size : LibC::Int, data : Void*) : ImagePtr
   fun image_create_from_webp = gdImageCreateFromWebp(in_file : File*) : ImagePtr
-  fun image_create_from_webp_ctx = gdImageCreateFromWebpCtx(infile : IoCtxPtr) : ImagePtr
+  fun image_create_from_webp_ctx = gdImageCreateFromWebpCtx(infile : IOCtxPtr) : ImagePtr
   fun image_create_from_webp_ptr = gdImageCreateFromWebpPtr(size : LibC::Int, data : Void*) : ImagePtr
   fun image_create_from_xbm = gdImageCreateFromXbm(in : File*) : ImagePtr
   fun image_create_from_xpm = gdImageCreateFromXpm(filename : LibC::Char*) : ImagePtr
@@ -245,25 +245,25 @@ lib LibGD
   fun image_get_true_color_pixel = gdImageGetTrueColorPixel(im : ImagePtr, x : LibC::Int, y : LibC::Int) : LibC::Int
   fun image_gif = gdImageGif(im : ImagePtr, out : File*)
   fun image_gif_anim_add = gdImageGifAnimAdd(im : ImagePtr, out_file : File*, local_cm : LibC::Int, left_ofs : LibC::Int, top_ofs : LibC::Int, delay : LibC::Int, disposal : LibC::Int, previm : ImagePtr)
-  fun image_gif_anim_add_ctx = gdImageGifAnimAddCtx(im : ImagePtr, out : IoCtxPtr, local_cm : LibC::Int, left_ofs : LibC::Int, top_ofs : LibC::Int, delay : LibC::Int, disposal : LibC::Int, previm : ImagePtr)
+  fun image_gif_anim_add_ctx = gdImageGifAnimAddCtx(im : ImagePtr, out : IOCtxPtr, local_cm : LibC::Int, left_ofs : LibC::Int, top_ofs : LibC::Int, delay : LibC::Int, disposal : LibC::Int, previm : ImagePtr)
   fun image_gif_anim_add_ptr = gdImageGifAnimAddPtr(im : ImagePtr, size : LibC::Int*, local_cm : LibC::Int, left_ofs : LibC::Int, top_ofs : LibC::Int, delay : LibC::Int, disposal : LibC::Int, previm : ImagePtr) : Void*
   fun image_gif_anim_begin = gdImageGifAnimBegin(im : ImagePtr, out_file : File*, global_cm : LibC::Int, loops : LibC::Int)
-  fun image_gif_anim_begin_ctx = gdImageGifAnimBeginCtx(im : ImagePtr, out : IoCtxPtr, global_cm : LibC::Int, loops : LibC::Int)
+  fun image_gif_anim_begin_ctx = gdImageGifAnimBeginCtx(im : ImagePtr, out : IOCtxPtr, global_cm : LibC::Int, loops : LibC::Int)
   fun image_gif_anim_begin_ptr = gdImageGifAnimBeginPtr(im : ImagePtr, size : LibC::Int*, global_cm : LibC::Int, loops : LibC::Int) : Void*
   fun image_gif_anim_end = gdImageGifAnimEnd(out_file : File*)
-  fun image_gif_anim_end_ctx = gdImageGifAnimEndCtx(out : IoCtxPtr)
+  fun image_gif_anim_end_ctx = gdImageGifAnimEndCtx(out : IOCtxPtr)
   fun image_gif_anim_end_ptr = gdImageGifAnimEndPtr(size : LibC::Int*) : Void*
-  fun image_gif_ctx = gdImageGifCtx(im : ImagePtr, out : IoCtxPtr)
+  fun image_gif_ctx = gdImageGifCtx(im : ImagePtr, out : IOCtxPtr)
   fun image_gif_ptr = gdImageGifPtr(im : ImagePtr, size : LibC::Int*) : LibC::Char*
   fun image_gray_scale = gdImageGrayScale(src : ImagePtr) : LibC::Int
   fun image_heif = gdImageHeif(im : ImagePtr, out_file : File*)
-  fun image_heif_ctx = gdImageHeifCtx(im : ImagePtr, outfile : IoCtxPtr, quality : LibC::Int, codec : HeifCodec, chroma : HeifChroma)
+  fun image_heif_ctx = gdImageHeifCtx(im : ImagePtr, outfile : IOCtxPtr, quality : LibC::Int, codec : HeifCodec, chroma : HeifChroma)
   fun image_heif_ex = gdImageHeifEx(im : ImagePtr, out_file : File*, quality : LibC::Int, codec : HeifCodec, chroma : HeifChroma)
   fun image_heif_ptr = gdImageHeifPtr(im : ImagePtr, size : LibC::Int*) : LibC::Char*
   fun image_heif_ptr_ex = gdImageHeifPtr(im : ImagePtr, size : LibC::Int*) : LibC::Char*
   fun image_interlace = gdImageInterlace(im : ImagePtr, interlace_arg : LibC::Int)
   fun image_jpeg = gdImageJpeg(im : ImagePtr, out : File*, quality : LibC::Int)
-  fun image_jpeg_ctx = gdImageJpegCtx(im : ImagePtr, out : IoCtxPtr, quality : LibC::Int)
+  fun image_jpeg_ctx = gdImageJpegCtx(im : ImagePtr, out : IOCtxPtr, quality : LibC::Int)
   fun image_jpeg_ptr = gdImageJpegPtr(im : ImagePtr, size : LibC::Int*, quality : LibC::Int) : LibC::Char*
   fun image_line = gdImageLine(im : ImagePtr, x1 : LibC::Int, y1 : LibC::Int, x2 : LibC::Int, y2 : LibC::Int, color : LibC::Int)
   fun image_mean_removal = gdImageMeanRemoval(im : ImagePtr) : LibC::Int
@@ -274,8 +274,8 @@ lib LibGD
   fun image_palette_to_true_color = gdImagePaletteToTrueColor(src : ImagePtr) : LibC::Int
   fun image_pixelate = gdImagePixelate(im : ImagePtr, block_size : LibC::Int, mode : LibC::UInt) : LibC::Int
   fun image_png = gdImagePng(im : ImagePtr, out : File*)
-  fun image_png_ctx = gdImagePngCtx(im : ImagePtr, out : IoCtxPtr)
-  fun image_png_ctx_ex = gdImagePngCtxEx(im : ImagePtr, out : IoCtxPtr, level : LibC::Int)
+  fun image_png_ctx = gdImagePngCtx(im : ImagePtr, out : IOCtxPtr)
+  fun image_png_ctx_ex = gdImagePngCtxEx(im : ImagePtr, out : IOCtxPtr, level : LibC::Int)
   fun image_png_ex = gdImagePngEx(im : ImagePtr, out : File*, level : LibC::Int)
   fun image_png_ptr = gdImagePngPtr(im : ImagePtr, size : LibC::Int*) : LibC::Char*
   fun image_png_ptr_ex = gdImagePngPtr(im : ImagePtr, size : LibC::Int*) : LibC::Char*
@@ -311,37 +311,37 @@ lib LibGD
   fun image_string_up = gdImageStringUp(im : ImagePtr, f : FontPtr, x : LibC::Int, y : LibC::Int, s : UInt8*, color : LibC::Int)
   fun image_string_up16 = gdImageStringUp16(im : ImagePtr, f : FontPtr, x : LibC::Int, y : LibC::Int, s : LibC::UShort*, color : LibC::Int)
   fun image_tiff = gdImageTiff(im : ImagePtr, out_file : File*)
-  fun image_tiff_ctx = gdImageTiffCtx(image : ImagePtr, out : IoCtxPtr)
+  fun image_tiff_ctx = gdImageTiffCtx(image : ImagePtr, out : IOCtxPtr)
   fun image_tiff_ptr = gdImageTiffPtr(im : ImagePtr, size : LibC::Int*) : LibC::Char*
   fun image_true_color_to_palette = gdImageTrueColorToPalette(im : ImagePtr, dither_flag : LibC::Int, colors_wanted : LibC::Int) : LibC::Int
   fun image_true_color_to_palette_set_method = gdImageTrueColorToPaletteSetMethod(im : ImagePtr, method : LibC::Int, speed : LibC::Int) : LibC::Int
   fun image_true_color_to_palette_set_quality = gdImageTrueColorToPaletteSetQuality(im : ImagePtr, min_quality : LibC::Int, max_quality : LibC::Int)
   fun image_wbmp = gdImageWBMP(image : ImagePtr, fg : LibC::Int, out : File*)
-  fun image_wbmp_ctx = gdImageWBMPCtx(image : ImagePtr, fg : LibC::Int, out : IoCtxPtr)
+  fun image_wbmp_ctx = gdImageWBMPCtx(image : ImagePtr, fg : LibC::Int, out : IOCtxPtr)
   fun image_wbmp_ptr = gdImageWBMPPtr(im : ImagePtr, size : LibC::Int*, fg : LibC::Int) : LibC::Char*
   fun image_webp = gdImageWebp(im : ImagePtr, out_file : File*)
-  fun image_webp_ctx = gdImageWebpCtx(im : ImagePtr, outfile : IoCtxPtr, quantization : LibC::Int)
+  fun image_webp_ctx = gdImageWebpCtx(im : ImagePtr, outfile : IOCtxPtr, quantization : LibC::Int)
   fun image_webp_ex = gdImageWebpEx(im : ImagePtr, out_file : File*, quantization : LibC::Int)
   fun image_webp_ptr = gdImageWebpPtr(im : ImagePtr, size : LibC::Int*) : LibC::Char*
   fun image_webp_ptr_ex = gdImageWebpPtr(im : ImagePtr, size : LibC::Int*) : LibC::Char*
-  fun image_xbm_ctx = gdImageXbmCtx(image : ImagePtr, file_name : LibC::Char*, fg : LibC::Int, out : IoCtxPtr)
+  fun image_xbm_ctx = gdImageXbmCtx(image : ImagePtr, file_name : LibC::Char*, fg : LibC::Int, out : IOCtxPtr)
   fun layer_multiply = gdLayerMultiply(dest : LibC::Int, src : LibC::Int) : LibC::Int
   fun layer_overlay = gdLayerOverlay(dest : LibC::Int, src : LibC::Int) : LibC::Int
   fun major_version = gdMajorVersion : LibC::Int
   fun minor_version = gdMinorVersion : LibC::Int
-  fun new_dynamic_ctx = gdNewDynamicCtx(size : LibC::Int, data : Void*) : IoCtxPtr
-  fun new_dynamic_ctx_ex = gdNewDynamicCtxEx(size : LibC::Int, data : Void*, free_flag : LibC::Int) : IoCtxPtr
-  fun new_file_ctx = gdNewFileCtx(x0 : File*) : IoCtxPtr
-  fun new_ss_ctx = gdNewSSCtx(in : SourcePtr, out : SinkPtr) : IoCtxPtr
-  fun put_buf = gdPutBuf(x0 : Void*, x1 : LibC::Int, x2 : IoCtxPtr) : LibC::Int
-  fun put_c = gdPutC(c : UInt8, ctx : IoCtxPtr)
-  fun put_int = gdPutInt(w : LibC::Int, ctx : IoCtxPtr)
-  fun put_word = gdPutWord(w : LibC::Int, ctx : IoCtxPtr)
+  fun new_dynamic_ctx = gdNewDynamicCtx(size : LibC::Int, data : Void*) : IOCtxPtr
+  fun new_dynamic_ctx_ex = gdNewDynamicCtxEx(size : LibC::Int, data : Void*, free_flag : LibC::Int) : IOCtxPtr
+  fun new_file_ctx = gdNewFileCtx(x0 : File*) : IOCtxPtr
+  fun new_ss_ctx = gdNewSSCtx(in : SourcePtr, out : SinkPtr) : IOCtxPtr
+  fun put_buf = gdPutBuf(x0 : Void*, x1 : LibC::Int, x2 : IOCtxPtr) : LibC::Int
+  fun put_c = gdPutC(c : UInt8, ctx : IOCtxPtr)
+  fun put_int = gdPutInt(w : LibC::Int, ctx : IOCtxPtr)
+  fun put_word = gdPutWord(w : LibC::Int, ctx : IOCtxPtr)
   fun release_version = gdReleaseVersion : LibC::Int
-  fun seek = gdSeek(ctx : IoCtxPtr, offset : LibC::Int) : LibC::Int
+  fun seek = gdSeek(ctx : IOCtxPtr, offset : LibC::Int) : LibC::Int
   fun set_error_method = gdSetErrorMethod(x0 : ErrorMethod)
   fun supports_file_type = gdSupportsFileType(filename : LibC::Char*, writing : LibC::Int) : LibC::Int
-  fun tell = gdTell(ctx : IoCtxPtr) : LibC::Long
+  fun tell = gdTell(ctx : IOCtxPtr) : LibC::Long
   fun transform_affine_bounding_box = gdTransformAffineBoundingBox(src : RectPtr, affine : LibC::Double[6], bbox : RectPtr) : LibC::Int
   fun transform_affine_copy = gdTransformAffineCopy(dst : ImagePtr, dst_x : LibC::Int, dst_y : LibC::Int, src : ImagePtr, src_region : RectPtr, affine : LibC::Double[6]) : LibC::Int
   fun transform_affine_get_image = gdTransformAffineGetImage(dst : ImagePtr*, src : ImagePtr, src_area : RectPtr, affine : LibC::Double[6]) : LibC::Int
@@ -408,14 +408,14 @@ lib LibGD
     interpolation : InterpolationMethod
   end
 
-  struct IoCtx
-    get_c : (IoCtxPtr -> LibC::Int)
-    get_buf : (IoCtxPtr, Void*, LibC::Int -> LibC::Int)
-    put_c : (IoCtxPtr, LibC::Int -> Void)
-    put_buf : (IoCtxPtr, Void*, LibC::Int -> LibC::Int)
-    seek : (IoCtxPtr, LibC::Int -> LibC::Int)
-    tell : (IoCtxPtr -> LibC::Long)
-    gd_free : (IoCtxPtr -> Void)
+  struct IOCtx
+    get_c : (IOCtxPtr -> LibC::Int)
+    get_buf : (IOCtxPtr, Void*, LibC::Int -> LibC::Int)
+    put_c : (IOCtxPtr, LibC::Int -> Void)
+    put_buf : (IOCtxPtr, Void*, LibC::Int -> LibC::Int)
+    seek : (IOCtxPtr, LibC::Int -> LibC::Int)
+    tell : (IOCtxPtr -> LibC::Long)
+    gd_free : (IOCtxPtr -> Void)
     data : Void*
   end
 
@@ -454,7 +454,7 @@ lib LibGD
     context : Void*
   end
 
-  struct X_IoFile
+  struct X_IOFile
     _flags : LibC::Int
     _io_read_ptr : LibC::Char*
     _io_read_end : LibC::Char*
@@ -467,24 +467,24 @@ lib LibGD
     _io_save_base : LibC::Char*
     _io_backup_base : LibC::Char*
     _io_save_end : LibC::Char*
-    _markers : X_IoMarker*
-    _chain : X_IoFile*
+    _markers : X_IOMarker*
+    _chain : X_IOFile*
     _fileno : LibC::Int
     _flags2 : LibC::Int
     _old_offset : X__OffT
     _cur_column : LibC::UShort
     _vtable_offset : LibC::Char
     _shortbuf : LibC::Char[1]
-    _lock : X_IoLockT*
+    _lock : X_IOLockT*
     _offset : X__Off64T
-    _codecvt : X_IoCodecvt*
-    _wide_data : X_IoWideData*
-    _freeres_list : X_IoFile*
+    _codecvt : X_IOCodecvt*
+    _wide_data : X_IOWideData*
+    _freeres_list : X_IOFile*
     _freeres_buf : Void*
     __pad5 : LibC::SizeT
     _mode : LibC::Int
     _unused2 : LibC::Char[20]
   end
 
-  type File = X_IoFile
+  type File = X_IOFile
 end
