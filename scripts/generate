@@ -23,6 +23,7 @@ repository = File.read(repository_path)
   "gdImageCreateFromPtr"       => "gdImageCreateFromGdPtr",
   "lib Lib"                    => "lib LibGD",
   "struct Gd"                  => "struct ",
+  "Struct"                     => "",
   /gdImage2Ptr(.*) : Void/     => "gdImage2Ptr(im : ImagePtr, cs : LibC::Int, fmt : LibC::Int, size : LibC::Int*) : LibC::Char",
   /gdImageAvifPtr(.*) : Void/  => "gdImageAvifPtr(im : ImagePtr, size : LibC::Int*) : LibC::Char",
   /gdImageAvifPtr(.*) : Void/  => "gdImageAvifPtr(im : ImagePtr, size : LibC::Int*) : LibC::Char",
@@ -38,5 +39,15 @@ repository = File.read(repository_path)
 }.each do |before, after|
   repository = repository.gsub(before, after)
 end
+
+[
+  "Font",
+  "Image",
+  "Rect",
+].each do |type_name|
+  repository = repository.gsub("\n  type #{type_name} = #{type_name}", "")
+end
+
+File.write(repository_path, repository)
 
 File.write(repository_path, repository)

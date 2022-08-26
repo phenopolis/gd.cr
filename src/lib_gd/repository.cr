@@ -37,16 +37,16 @@ lib LibGD
   alias CallbackImageColor = (ImagePtr, LibC::Int -> LibC::Int)
   alias ErrorMethod = (LibC::Int, LibC::Char*, VaList -> Void)
   alias FontPtr = Font*
-  alias FtStringExtraPtr = FtStringExtraStruct*
+  alias FtStringExtraPtr = FtStringExtra*
   alias HeifChroma = LibC::Char*
   alias ImagePtr = Image*
   alias IoCtxPtr = IoCtx*
-  alias PointFPtr = PointFStruct*
-  alias PointPtr = PointStruct*
-  alias RectPtr = RectStruct*
-  alias ScatterPtr = ScatterStruct*
-  alias SinkPtr = SinkStruct*
-  alias SourcePtr = SourceStruct*
+  alias PointFPtr = PointF*
+  alias PointPtr = Point*
+  alias RectPtr = Rect*
+  alias ScatterPtr = Scatter*
+  alias SinkPtr = Sink*
+  alias SourcePtr = Source*
   alias InterpolationMethod = (LibC::Double, LibC::Double -> LibC::Double)
   alias VaList = X__GnucVaList
   alias X_IoCodecvt = Void
@@ -347,7 +347,7 @@ lib LibGD
   fun transform_affine_get_image = gdTransformAffineGetImage(dst : ImagePtr*, src : ImagePtr, src_area : RectPtr, affine : LibC::Double[6]) : LibC::Int
   fun version_string = gdVersionString : LibC::Char*
 
-  struct FontStruct
+  struct Font
     nchars : LibC::Int
     offset : LibC::Int
     w : LibC::Int
@@ -355,7 +355,7 @@ lib LibGD
     data : LibC::Char*
   end
 
-  struct FtStringExtraStruct
+  struct FtStringExtra
     flags : LibC::Int
     linespacing : LibC::Double
     charmap : LibC::Int
@@ -365,7 +365,7 @@ lib LibGD
     fontpath : LibC::Char*
   end
 
-  struct ImageStruct
+  struct Image
     pixels : UInt8**
     sx : LibC::Int
     sy : LibC::Int
@@ -377,8 +377,8 @@ lib LibGD
     transparent : LibC::Int
     poly_ints : LibC::Int*
     poly_allocated : LibC::Int
-    brush : ImageStruct*
-    tile : ImageStruct*
+    brush : Image*
+    tile : Image*
     brush_color_map : LibC::Int[256]
     tile_color_map : LibC::Int[256]
     style_length : LibC::Int
@@ -419,24 +419,24 @@ lib LibGD
     data : Void*
   end
 
-  struct PointFStruct
+  struct PointF
     x : LibC::Double
     y : LibC::Double
   end
 
-  struct PointStruct
+  struct Point
     x : LibC::Int
     y : LibC::Int
   end
 
-  struct RectStruct
+  struct Rect
     x : LibC::Int
     y : LibC::Int
     width : LibC::Int
     height : LibC::Int
   end
 
-  struct ScatterStruct
+  struct Scatter
     sub : LibC::Int
     plus : LibC::Int
     num_colors : LibC::UInt
@@ -444,12 +444,12 @@ lib LibGD
     seed : LibC::UInt
   end
 
-  struct SinkStruct
+  struct Sink
     sink : (Void*, LibC::Char*, LibC::Int -> LibC::Int)
     context : Void*
   end
 
-  struct SourceStruct
+  struct Source
     source : (Void*, LibC::Char*, LibC::Int -> LibC::Int)
     context : Void*
   end
@@ -487,7 +487,4 @@ lib LibGD
   end
 
   type File = X_IoFile
-  type Font = FontStruct
-  type Image = ImageStruct
-  type Rect = RectStruct
 end
